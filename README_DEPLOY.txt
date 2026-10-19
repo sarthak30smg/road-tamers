@@ -1,4 +1,4 @@
-ROAD TAMERS 1.9.3 — FIXED SHARED LEADERBOARD
+ROAD TAMERS 1.9.4 — SHOWROOM & CARDEX UPDATE
 
 This package keeps the game artwork/gameplay and adds real shared leaderboard endpoints:
   GET  /.netlify/functions/leaderboard

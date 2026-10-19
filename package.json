@@ -1,6 +1,6 @@
 {
   "name": "road-tamers-1-9-3",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "private": true,
   "type": "module",
   "description": "Road Tamers static game with shared Netlify leaderboard",
