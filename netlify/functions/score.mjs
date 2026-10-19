@@ -16,15 +16,15 @@ export default async function handler(request) {
   const name = cleanName(input?.name);
   if (!/^[\w.-]{8,128}$/.test(id) || !name) return json({ error: 'A valid player ID and racer name are required.' }, 400);
 
-  const rawCars = Array.isArray(input.cars) ? input.cars.slice(0, 35) : [];
+  const rawCars = Array.isArray(input.cars) ? input.cars.slice(0, 37) : [];
   const cars = rawCars.map(car => ({
     i: Number(car?.i),
     l: Math.max(0, Math.min(1000, Number(car?.l) || 0)),
     w: Math.max(0, Math.min(100000, Number(car?.w) || 0)),
     col: /^#[0-9a-f]{6}$/i.test(String(car?.col ?? '')) ? String(car.col) : ''
-  })).filter(car => Number.isInteger(car.i) && car.i >= 0 && car.i < 35);
+  })).filter(car => Number.isInteger(car.i) && car.i >= 0 && car.i < 37);
   const seen = [...new Set((Array.isArray(input.seen) ? input.seen : [])
-    .map(Number).filter(i => Number.isInteger(i) && i >= 0 && i < 35))];
+    .map(Number).filter(i => Number.isInteger(i) && i >= 0 && i < 37))];
   const flags = input.f && typeof input.f === 'object' && !Array.isArray(input.f) ? input.f : {};
   const completedFlags = Object.values(flags).filter(Boolean).length;
   const score = cars.reduce((sum, car) => sum + car.l * 10 + car.w * 25 + 50, 0) + seen.length * 100 + completedFlags * 300;
